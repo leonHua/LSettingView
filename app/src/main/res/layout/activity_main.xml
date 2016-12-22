@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:leon="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="lsettingview.lsettingview.MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:layout_marginBottom="16dp"
+        android:background="#fff"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/headimage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="朱小明"
+            android:gravity="center"
+            android:textSize="16sp"/>
+    </LinearLayout>
+
+
+    <com.leon.lib.settingview.LSettingItem
+        android:id="@+id/item_one"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        leon:leftIcon="@drawable/history"
+        leon:leftText="我的消息"/>
+
+    <com.leon.lib.settingview.LSettingItem
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        leon:leftIcon="@drawable/download"
+        leon:leftText="我的下载"/>
+
+    <com.leon.lib.settingview.LSettingItem
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        leon:leftIcon="@drawable/credit_card"
+        leon:leftText="我的卡片"/>
+
+    <com.leon.lib.settingview.LSettingItem
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        leon:leftIcon="@drawable/ic_action_action_add_shopping_cart"
+        leon:leftText="我的购物车"/>
+
+    <com.leon.lib.settingview.LSettingItem
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        leon:leftIcon="@drawable/ic_action_communication_location_on"
+        leon:leftText="我的位置"/>
+</LinearLayout>

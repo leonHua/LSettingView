@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="LSettingView">
+        <attr name="leftText" format="string"/>
+        <attr name="leftIcon" format="integer"/>
+        <attr name="rightIcon" format="integer"/>
+        <attr name="textSize" format="dimension"/>
+        <attr name="textColor" format="color"/>
+        <attr name="bgColor" format="color"/><!-- 背景颜色 -->
+        <attr name="bgSelectedColor" format="color"/><!-- 按下背景颜色-->
+    </declare-styleable>
+
+
+</resources>
