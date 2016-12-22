@@ -6,9 +6,12 @@
         <attr name="rightIcon" format="integer"/>
         <attr name="textSize" format="dimension"/>
         <attr name="textColor" format="color"/>
-        <attr name="bgColor" format="color"/><!-- 背景颜色 -->
-        <attr name="bgSelectedColor" format="color"/><!-- 按下背景颜色-->
+        <attr name="isShowUnderLine" format="boolean"/>
+        <attr name="rightStyle" format="enum">
+            <enum name="iconShow" value="0"/>
+            <enum name="iconHide" value="1"/>
+            <enum name="iconCheck" value="2"/>
+            <enum name="iconSwitch" value="3"/>
+        </attr>
     </declare-styleable>
-
-
 </resources>

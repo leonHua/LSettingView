@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:leon="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -36,35 +37,45 @@
         android:id="@+id/item_one"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:clickable="true"
         leon:leftIcon="@drawable/history"
         leon:leftText="我的消息"/>
 
     <com.leon.lib.settingview.LSettingItem
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:clickable="true"
         leon:leftIcon="@drawable/download"
         leon:leftText="我的下载"/>
 
     <com.leon.lib.settingview.LSettingItem
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:clickable="true"
         leon:leftIcon="@drawable/credit_card"
-        leon:leftText="我的卡片"/>
+        leon:leftText="我的卡片"
+        leon:rightStyle="iconHide"/>
 
     <com.leon.lib.settingview.LSettingItem
+        android:id="@+id/item_four"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:clickable="true"
+        app:theme="@style/MyCheckBox"
         leon:leftIcon="@drawable/ic_action_action_add_shopping_cart"
-        leon:leftText="我的购物车"/>
+        leon:leftText="我的购物车"
+        leon:rightStyle="iconCheck"/>
 
     <com.leon.lib.settingview.LSettingItem
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:clickable="true"
+        app:theme="@style/MyCheckBox"
+        leon:isShowUnderLine="false"
         leon:leftIcon="@drawable/ic_action_communication_location_on"
-        leon:leftText="我的位置"/>
+        leon:leftText="我的位置"
+        leon:rightStyle="iconSwitch"/>
+
+    <com.leon.lib.settingview.LSettingItem
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        leon:isShowUnderLine="false"
+        leon:leftText="不显示分割线"
+        leon:rightStyle="iconSwitch"/>
 </LinearLayout>
