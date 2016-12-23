@@ -36,9 +36,8 @@
             android:id="@+id/iv_righticon"
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:layout_gravity="center_vertical"
-            android:src="@drawable/righticon"
-            android:visibility="gone"/>
+            android:layout_gravity="center"
+            android:src="@drawable/righticon"/>
 
         <android.support.v7.widget.AppCompatCheckBox
             android:id="@+id/rightcheck"
