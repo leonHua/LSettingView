@@ -30,12 +30,18 @@ public class LSettingItem extends RelativeLayout {
     private int mTextSize;
     /*左侧显示文本颜色*/
     private int mTextColor;
+    /*右侧显示文本大小*/
+    private int mRightTextSize;
+    /*右侧显示文本颜色*/
+    private int mRightTextColor;
     /*整体根布局view*/
     private View mView;
     /*根布局*/
     private RelativeLayout mRootLayout;
     /*左侧文本控件*/
     private TextView mTvLeftText;
+    /*右侧文本控件*/
+    private TextView mTvRightText;
     /*分割线*/
     private View mUnderLine;
     /*左侧图标控件*/
@@ -113,6 +119,20 @@ public class LSettingItem extends RelativeLayout {
                 if (!a.getBoolean(attr, true)) {
                     mUnderLine.setVisibility(View.GONE);
                 }
+            } else if (attr == R.styleable.LSettingView_isShowRightText) {
+                //默认不显示右侧文字
+                if (a.getBoolean(attr, false)) {
+                    mTvRightText.setVisibility(View.VISIBLE);
+                }
+            } else if (attr == R.styleable.LSettingView_rightText) {
+                mTvRightText.setText(a.getString(attr));
+            } else if (attr == R.styleable.LSettingView_rightTextSize) {
+                mRightTextSize = (int) a.getDimension(attr, 20);
+                mTvRightText.setTextSize(TypedValue.COMPLEX_UNIT_PX, mRightTextSize);
+            } else if (attr == R.styleable.LSettingView_rightTextColor) {
+                //文字默认灰色
+                mRightTextColor = a.getColor(attr, Color.GRAY);
+                mTvRightText.setTextColor(mRightTextColor);
             }
         }
         a.recycle();
@@ -133,7 +153,7 @@ public class LSettingItem extends RelativeLayout {
                 break;
             case 1:
                 //隐藏右侧图标
-                mRightLayout.setVisibility(View.GONE);
+                mRightLayout.setVisibility(View.INVISIBLE);
                 break;
             case 2:
                 //显示选择框样式
@@ -155,6 +175,7 @@ public class LSettingItem extends RelativeLayout {
         mRootLayout = (RelativeLayout) mView.findViewById(R.id.rootLayout);
         mUnderLine = (View) mView.findViewById(R.id.underline);
         mTvLeftText = (TextView) mView.findViewById(R.id.tv_lefttext);
+        mTvRightText = (TextView) mView.findViewById(R.id.tv_righttext);
         mIvLeftIcon = (ImageView) mView.findViewById(R.id.iv_lefticon);
         mIvRightIcon = (ImageView) mView.findViewById(R.id.iv_righticon);
         mRightLayout = (FrameLayout) mView.findViewById(R.id.rightlayout);
@@ -180,6 +201,17 @@ public class LSettingItem extends RelativeLayout {
 
     public interface OnLSettingItemClick {
         public void click();
+    }
+
+    /**
+     * 将px值转换为sp值，保证文字大小不变
+     *
+     * @param pxValue
+     * @return
+     */
+    public int px2sp(Context context, float pxValue) {
+        final float fontScale = context.getResources().getDisplayMetrics().scaledDensity;
+        return (int) (pxValue / fontScale + 0.5f);
     }
 }
 
