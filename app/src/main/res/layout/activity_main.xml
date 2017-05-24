@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:leon="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -37,14 +36,21 @@
         android:id="@+id/item_one"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        leon:isShowRightText="true"
         leon:leftIcon="@drawable/history"
-        leon:leftText="我的消息"/>
+        leon:leftText="我的消息"
+        leon:rightText="99+"
+        leon:rightTextColor="@color/gray"
+        leon:rightTextSize="14sp"/>
 
     <com.leon.lib.settingview.LSettingItem
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        leon:isShowRightText="true"
         leon:leftIcon="@drawable/download"
-        leon:leftText="我的下载"/>
+        leon:leftText="我的下载"
+        leon:rightText="V1.0.0"
+        leon:rightTextColor="@color/colorPrimary"/>
 
     <com.leon.lib.settingview.LSettingItem
         android:layout_width="match_parent"
@@ -57,7 +63,7 @@
         android:id="@+id/item_four"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:theme="@style/MyCheckBox"
+        android:theme="@style/MyCheckBox"
         leon:leftIcon="@drawable/ic_action_action_add_shopping_cart"
         leon:leftText="我的购物车"
         leon:rightStyle="iconCheck"/>
@@ -65,7 +71,7 @@
     <com.leon.lib.settingview.LSettingItem
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:theme="@style/MyCheckBox"
+        android:theme="@style/MyCheckBox"
         leon:isShowUnderLine="false"
         leon:leftIcon="@drawable/ic_action_communication_location_on"
         leon:leftText="我的位置"
