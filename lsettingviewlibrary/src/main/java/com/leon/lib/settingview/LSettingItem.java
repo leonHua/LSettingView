@@ -103,6 +103,10 @@ public class LSettingItem extends RelativeLayout {
                 // 左侧图标
                 mLeftIcon = a.getDrawable(attr);
                 mIvLeftIcon.setImageDrawable(mLeftIcon);
+            } else if (attr == R.styleable.LSettingView_rightIcon) {
+                // 右侧图标
+                mRightIcon = a.getDrawable(attr);
+                mIvRightIcon.setImageDrawable(mRightIcon);
             } else if (attr == R.styleable.LSettingView_textSize) {
                 // 默认设置为16sp，TypeValue也可以把sp转化为px
                 mTextSize = a.getDimensionPixelSize(attr, (int) TypedValue.applyDimension(
