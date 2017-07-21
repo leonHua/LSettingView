@@ -4,9 +4,11 @@
         <attr name="leftText" format="string"/>
         <attr name="leftIcon" format="integer"/>
         <attr name="rightIcon" format="integer"/>
-        <attr name="textSize" format="dimension"/>
+        <attr name="textSize" format="float"/>
         <attr name="textColor" format="color"/>
         <attr name="isShowUnderLine" format="boolean"/>
+        <attr name="leftIconSize" format="dimension"/>
+        <attr name="leftTextMarginLeft" format="dimension"/>
         <attr name="rightStyle" format="enum">
             <enum name="iconShow" value="0"/>
             <enum name="iconHide" value="1"/>

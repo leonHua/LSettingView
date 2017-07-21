@@ -9,6 +9,7 @@ import android.support.v7.widget.SwitchCompat;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.View;
+import android.widget.CompoundButton;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -46,6 +47,8 @@ public class LSettingItem extends RelativeLayout {
     private View mUnderLine;
     /*左侧图标控件*/
     private ImageView mIvLeftIcon;
+    /*左侧图标大小*/
+    private int mLeftIconSzie;
     /*右侧图标控件区域,默认展示图标*/
     private FrameLayout mRightLayout;
     /*右侧图标控件,默认展示图标*/
@@ -56,6 +59,8 @@ public class LSettingItem extends RelativeLayout {
     private SwitchCompat mRightIcon_switch;
     /*右侧图标展示风格*/
     private int mRightStyle = 0;
+    /*选中状态*/
+    private boolean mChecked;
     /*点击事件*/
     private OnLSettingItemClick mOnLSettingItemClick;
 
@@ -77,6 +82,12 @@ public class LSettingItem extends RelativeLayout {
             @Override
             public void onClick(View v) {
                 clickOn();
+            }
+        });
+        mRightIcon_check.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                mOnLSettingItemClick.click(isChecked);
             }
         });
     }
@@ -103,15 +114,25 @@ public class LSettingItem extends RelativeLayout {
                 // 左侧图标
                 mLeftIcon = a.getDrawable(attr);
                 mIvLeftIcon.setImageDrawable(mLeftIcon);
+            } else if (attr == R.styleable.LSettingView_leftIconSize) {
+                mLeftIconSzie = (int) a.getDimension(attr, 16);
+                RelativeLayout.LayoutParams layoutParams = (LayoutParams) mIvLeftIcon.getLayoutParams();
+                layoutParams.width = mLeftIconSzie;
+                layoutParams.height = mLeftIconSzie;
+                mIvLeftIcon.setLayoutParams(layoutParams);
+            } else if (attr == R.styleable.LSettingView_leftTextMarginLeft) {
+                int leftMargin = (int) a.getDimension(attr, 8);
+                RelativeLayout.LayoutParams layoutParams = (LayoutParams) mTvLeftText.getLayoutParams();
+                layoutParams.leftMargin = leftMargin;
+                mTvLeftText.setLayoutParams(layoutParams);
             } else if (attr == R.styleable.LSettingView_rightIcon) {
                 // 右侧图标
                 mRightIcon = a.getDrawable(attr);
                 mIvRightIcon.setImageDrawable(mRightIcon);
             } else if (attr == R.styleable.LSettingView_textSize) {
-                // 默认设置为16sp，TypeValue也可以把sp转化为px
-                mTextSize = a.getDimensionPixelSize(attr, (int) TypedValue.applyDimension(
-                        TypedValue.COMPLEX_UNIT_SP, 16, getResources().getDisplayMetrics()));
-                mTvLeftText.setTextSize(mTextSize);
+                // 默认设置为16sp
+                float textSize = a.getFloat(attr, 16);
+                mTvLeftText.setTextSize(textSize);
             } else if (attr == R.styleable.LSettingView_textColor) {
                 //文字默认灰色
                 mTextColor = a.getColor(attr, Color.LTGRAY);
@@ -187,35 +208,56 @@ public class LSettingItem extends RelativeLayout {
         mRightIcon_switch = (SwitchCompat) mView.findViewById(R.id.rightswitch);
     }
 
+    /**
+     * 如果不是开关模式，则处理点击事件
+     * 如果是开关模式，则只更改开关状态
+     */
     public void clickOn() {
         switch (mRightStyle) {
+            case 0:
+            case 1:
+                if (null != mOnLSettingItemClick) {
+                    mOnLSettingItemClick.click(mChecked);
+                }
+                break;
             case 2:
                 //选择框切换选中状态
                 mRightIcon_check.setChecked(!mRightIcon_check.isChecked());
+                mChecked = mRightIcon_check.isChecked();
                 break;
             case 3:
                 //开关切换状态
                 mRightIcon_switch.setChecked(!mRightIcon_switch.isChecked());
+                mChecked = mRightIcon_check.isChecked();
                 break;
         }
-        if (null != mOnLSettingItemClick) {
-            mOnLSettingItemClick.click();
-        }
-    }
-
-    public interface OnLSettingItemClick {
-        public void click();
     }
 
     /**
-     * 将px值转换为sp值，保证文字大小不变
+     * 获取根布局对象
      *
-     * @param pxValue
      * @return
      */
-    public int px2sp(Context context, float pxValue) {
-        final float fontScale = context.getResources().getDisplayMetrics().scaledDensity;
-        return (int) (pxValue / fontScale + 0.5f);
+    public RelativeLayout getmRootLayout() {
+        return mRootLayout;
+    }
+
+    /**
+     * 更改左侧文字
+     */
+    public void setLeftText(String info) {
+        mTvLeftText.setText(info);
+    }
+
+    /**
+     * 更改右侧文字
+     */
+    public void setRightText(String info) {
+        mTvRightText.setText(info);
+    }
+
+    public interface OnLSettingItemClick {
+        public void click(boolean isChecked);
     }
 }
 

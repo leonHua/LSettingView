@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mSettingItemOne = (LSettingItem) findViewById(R.id.item_one);
         mSettingItemFour = (LSettingItem) findViewById(R.id.item_four);
         mIvHead = (ImageView) findViewById(R.id.headimage);
+
         mSettingItemOne.setmOnLSettingItemClick(new LSettingItem.OnLSettingItemClick() {
             @Override
             public void click(boolean isChecked) {
@@ -33,6 +34,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Toast.makeText(getApplicationContext(), "选中开关：" + isChecked, Toast.LENGTH_SHORT).show();
             }
         });
+        mSettingItemOne.setRightText("我是右侧改变的文字");
         Picasso.with(this).load(R.drawable.girl).transform(new CircleTransform()).into(mIvHead);
     }
 
