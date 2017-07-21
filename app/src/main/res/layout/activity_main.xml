@@ -50,7 +50,8 @@
         leon:leftIcon="@drawable/download"
         leon:leftText="我的下载"
         leon:rightText="V1.0.0"
-        leon:rightTextColor="@color/colorPrimary"/>
+        leon:rightTextColor="@color/colorPrimary"
+        leon:textSize="20"/>
 
     <com.leon.lib.settingview.LSettingItem
         android:layout_width="match_parent"
