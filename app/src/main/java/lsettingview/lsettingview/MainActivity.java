@@ -23,14 +23,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mIvHead = (ImageView) findViewById(R.id.headimage);
         mSettingItemOne.setmOnLSettingItemClick(new LSettingItem.OnLSettingItemClick() {
             @Override
-            public void click() {
+            public void click(boolean isChecked) {
                 Toast.makeText(getApplicationContext(), "我的消息", Toast.LENGTH_SHORT).show();
             }
         });
         mSettingItemFour.setmOnLSettingItemClick(new LSettingItem.OnLSettingItemClick() {
             @Override
-            public void click() {
-                Toast.makeText(getApplicationContext(), "选中开关", Toast.LENGTH_SHORT).show();
+            public void click(boolean isChecked) {
+                Toast.makeText(getApplicationContext(), "选中开关：" + isChecked, Toast.LENGTH_SHORT).show();
             }
         });
         Picasso.with(this).load(R.drawable.girl).transform(new CircleTransform()).into(mIvHead);
