@@ -37,13 +37,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         leon:isShowRightText="true"
-        leon:leftIcon="@drawable/message"
         leon:leftIconSize="36dp"
         leon:leftText="我的消息"
         leon:leftTextMarginLeft="30dp"
         leon:rightText="99+"
         leon:rightTextColor="@color/gray"
-        leon:rightTextSize="14sp"/>
+        leon:rightTextSize="14"/>
 
     <com.leon.lib.settingview.LSettingItem
         android:layout_width="match_parent"
