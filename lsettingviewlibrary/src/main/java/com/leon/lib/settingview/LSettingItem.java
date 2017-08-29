@@ -7,7 +7,6 @@ import android.graphics.drawable.Drawable;
 import android.support.v7.widget.AppCompatCheckBox;
 import android.support.v7.widget.SwitchCompat;
 import android.util.AttributeSet;
-import android.util.TypedValue;
 import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.FrameLayout;
@@ -32,7 +31,7 @@ public class LSettingItem extends RelativeLayout {
     /*左侧显示文本颜色*/
     private int mTextColor;
     /*右侧显示文本大小*/
-    private int mRightTextSize;
+    private float mRightTextSize;
     /*右侧显示文本颜色*/
     private int mRightTextColor;
     /*整体根布局view*/
@@ -113,7 +112,10 @@ public class LSettingItem extends RelativeLayout {
             } else if (attr == R.styleable.LSettingView_leftIcon) {
                 // 左侧图标
                 mLeftIcon = a.getDrawable(attr);
-                mIvLeftIcon.setImageDrawable(mLeftIcon);
+                if (null != mLeftIcon) {
+                    mIvLeftIcon.setImageDrawable(mLeftIcon);
+                    mIvLeftIcon.setVisibility(VISIBLE);
+                }
             } else if (attr == R.styleable.LSettingView_leftIconSize) {
                 mLeftIconSzie = (int) a.getDimension(attr, 16);
                 RelativeLayout.LayoutParams layoutParams = (LayoutParams) mIvLeftIcon.getLayoutParams();
@@ -152,8 +154,10 @@ public class LSettingItem extends RelativeLayout {
             } else if (attr == R.styleable.LSettingView_rightText) {
                 mTvRightText.setText(a.getString(attr));
             } else if (attr == R.styleable.LSettingView_rightTextSize) {
-                mRightTextSize = (int) a.getDimension(attr, 20);
-                mTvRightText.setTextSize(TypedValue.COMPLEX_UNIT_PX, mRightTextSize);
+
+                // 默认设置为16sp
+                mRightTextSize = a.getFloat(attr, 14);
+                mTvRightText.setTextSize(mRightTextSize);
             } else if (attr == R.styleable.LSettingView_rightTextColor) {
                 //文字默认灰色
                 mRightTextColor = a.getColor(attr, Color.GRAY);

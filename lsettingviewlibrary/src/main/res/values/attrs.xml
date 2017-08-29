@@ -17,7 +17,7 @@
         </attr>
         <attr name="isShowRightText" format="boolean"/>
         <attr name="rightText" format="string"/>
-        <attr name="rightTextSize" format="dimension"/>
+        <attr name="rightTextSize" format="float"/>
         <attr name="rightTextColor" format="color"/>
     </declare-styleable>
 </resources>

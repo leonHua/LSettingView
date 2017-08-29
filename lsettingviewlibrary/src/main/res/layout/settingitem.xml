@@ -13,7 +13,8 @@
         android:layout_height="24dp"
         android:layout_centerVertical="true"
         android:layout_marginLeft="16dp"
-        android:src="@drawable/lefticon"/>
+        android:src="@drawable/lefticon"
+        android:visibility="gone"/>
 
     <TextView
         android:id="@+id/tv_lefttext"
@@ -58,9 +59,9 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_toLeftOf="@id/rightlayout"
-        android:visibility="gone"
         android:gravity="center"
-        android:text="1.0.0"/>
+        android:text="1.0.0"
+        android:visibility="gone"/>
 
     <View
         android:id="@+id/underline"
