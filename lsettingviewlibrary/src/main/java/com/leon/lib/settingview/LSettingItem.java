@@ -131,11 +131,11 @@ public class LSettingItem extends RelativeLayout {
                 // 右侧图标
                 mRightIcon = a.getDrawable(attr);
                 mIvRightIcon.setImageDrawable(mRightIcon);
-            } else if (attr == R.styleable.LSettingView_textSize) {
+            } else if (attr == R.styleable.LSettingView_LtextSize) {
                 // 默认设置为16sp
                 float textSize = a.getFloat(attr, 16);
                 mTvLeftText.setTextSize(textSize);
-            } else if (attr == R.styleable.LSettingView_textColor) {
+            } else if (attr == R.styleable.LSettingView_LtextColor) {
                 //文字默认灰色
                 mTextColor = a.getColor(attr, Color.LTGRAY);
                 mTvLeftText.setTextColor(mTextColor);
