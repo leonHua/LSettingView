@@ -10,8 +10,12 @@
  - 设置右侧为开关模式
  - 设置右侧文字及样式
  
-
->  **新增设置**
+>  **1.5.0 更新**
+ - 左侧图标默认不显示
+ - 文字大小统一设置为float格式
+ - 属性文字（textSize）和颜色（textColor）改成：LtextSize 和 LtextColor，避免和系统冲突
+ 
+>  **新增设置**
 
  - 设置左侧图标大小
  - 设置左侧图标和文字间距
@@ -66,8 +70,8 @@
 | leftText |左侧文字|string|
 | leftIcon |左侧图标|integer|
 | rightIcon |右侧图标|integer|
-| textSize |左侧文字大小|dimension|
-| textColor |左侧文字颜色|color|
+| LtextSize |左侧文字大小|dimension|
+| LtextColor |左侧文字颜色|color|
 | isShowUnderLine |是否显示底部分割线|boolean|
 | rightStyle |右侧图标风格|enum|
 | isShowRightText |是否显示右侧文字|boolean|
