@@ -71,6 +71,7 @@
         leon:rightStyle="iconCheck"/>
 
     <com.leon.lib.settingview.LSettingItem
+        android:id="@+id/item_five"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:theme="@style/MyCheckBox"

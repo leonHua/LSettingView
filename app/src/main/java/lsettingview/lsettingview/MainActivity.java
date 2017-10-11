@@ -12,6 +12,7 @@ import com.squareup.picasso.Picasso;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private LSettingItem mSettingItemOne;
     private LSettingItem mSettingItemFour;
+    private LSettingItem mSettingItemFive;
     private ImageView mIvHead;
 
     @Override
@@ -20,6 +21,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
         mSettingItemOne = (LSettingItem) findViewById(R.id.item_one);
         mSettingItemFour = (LSettingItem) findViewById(R.id.item_four);
+        mSettingItemFive = (LSettingItem) findViewById(R.id.item_five);
         mIvHead = (ImageView) findViewById(R.id.headimage);
 
         mSettingItemOne.setmOnLSettingItemClick(new LSettingItem.OnLSettingItemClick() {
@@ -35,6 +37,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
         mSettingItemOne.setRightText("我是右侧改变的文字");
+        mSettingItemFive.setmOnLSettingItemClick(new LSettingItem.OnLSettingItemClick() {
+            @Override
+            public void click(boolean isChecked) {
+                Toast.makeText(getApplicationContext(), "切换开关：" + isChecked, Toast.LENGTH_SHORT).show();
+            }
+        });
         Picasso.with(this).load(R.drawable.girl).transform(new CircleTransform()).into(mIvHead);
     }
 
