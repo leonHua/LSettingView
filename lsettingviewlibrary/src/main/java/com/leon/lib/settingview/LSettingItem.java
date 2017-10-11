@@ -86,7 +86,17 @@ public class LSettingItem extends RelativeLayout {
         mRightIcon_check.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                mOnLSettingItemClick.click(isChecked);
+                if (mOnLSettingItemClick!=null) {
+                    mOnLSettingItemClick.click(isChecked);
+                }
+            }
+        });
+        mRightIcon_switch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (mOnLSettingItemClick!=null) {
+                    mOnLSettingItemClick.click(isChecked);
+                }
             }
         });
     }
@@ -213,8 +223,7 @@ public class LSettingItem extends RelativeLayout {
     }
 
     /**
-     * 如果不是开关模式，则处理点击事件
-     * 如果是开关模式，则只更改开关状态
+     * 处理点击事件
      */
     public void clickOn() {
         switch (mRightStyle) {
