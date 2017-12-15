@@ -36,7 +36,7 @@
 ### 快速使用
 #### 1. 添加依赖
 
-    compile 'com.leon:lsettingviewlibrary:1.5.0'
+    compile 'com.leon:lsettingviewlibrary:1.7.0'
     
 #### 2. 在布局文件中引用
 
