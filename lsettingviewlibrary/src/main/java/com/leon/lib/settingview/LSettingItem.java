@@ -193,6 +193,7 @@ public class LSettingItem extends RelativeLayout {
             case 1:
                 //隐藏右侧图标
                 mRightLayout.setVisibility(View.INVISIBLE);
+                mRightLayout.getLayoutParams().width = 38;//多加一行这个将文字设置靠右对齐即可
                 break;
             case 2:
                 //显示选择框样式
